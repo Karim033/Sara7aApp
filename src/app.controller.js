@@ -35,6 +35,10 @@ const bootstrap = async (app, express) => {
   });
   app.use(limiter);
 
+  app.get("/", (req, res) => {
+    res.json("Welcome to Sara7a App 😘");
+  });
+
   app.use("/uploads", express.static(path.resolve("./src/uploads")));
   app.use("/api/auth", authRouter);
   app.use("/api/user", userRouter);
